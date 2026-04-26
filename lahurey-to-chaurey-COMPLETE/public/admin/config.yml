@@ -2,16 +2,13 @@ backend:
   name: github
   repo: IamMaheshGurung/lahureytochaureyweb
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
+  base_path: lahurey-to-chaurey-COMPLETE
 
-media_folder: "public/images/uploads"
+media_folder: "lahurey-to-chaurey-COMPLETE/public/images/uploads"
 public_folder: "/images/uploads"
 
 site_url: "https://lahureytochaurey.netlify.app"
 display_url: "https://lahureytochaurey.netlify.app"
-
-show_preview_links: true
 
 collections:
   - name: "stories"
