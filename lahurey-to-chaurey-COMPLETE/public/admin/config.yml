@@ -8,7 +8,7 @@
 
 backend:
   name: github
-  repo: YOUR_GITHUB_USERNAME/lahurey-to-chaurey
+  repo: repo: IamMaheshGurung/lahureytochaureyweb
   branch: main
   base_url: https://api.netlify.com
   auth_endpoint: auth
@@ -18,8 +18,8 @@ media_folder: "public/images/uploads"
 # Where those images are referenced in content
 public_folder: "/images/uploads"
 
-site_url: "https://your-site.netlify.app"
-display_url: "https://your-site.netlify.app"
+site_url: "https://lahureytochaurey.netlify.app"
+display_url: "https://lahureytochaurey.netlify.app"
 
 # Show a live preview of content as you type
 show_preview_links: true
