@@ -231,4 +231,11 @@ const pulsePosts = [
       </div>
     </div>
   </section>
+<script>
+  // Redirect Netlify Identity tokens to /admin
+  const hash = window.location.hash;
+  if (hash && (hash.includes('invite_token') || hash.includes('recovery_token') || hash.includes('confirmation_token'))) {
+    window.location.replace('/admin/' + hash);
+  }
+</script>
 </Layout>
