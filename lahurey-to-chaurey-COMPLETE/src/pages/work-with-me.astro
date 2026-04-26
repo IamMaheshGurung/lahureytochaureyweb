@@ -1,0 +1,167 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="सँगै काम गरौँ | Lahurey to Chaurey"
+  description="ब्रान्ड, कम्पनी, NGO, र संस्थाहरूका लागि sponsored stories, sector reports, र narrative consulting।"
+>
+  <section class="py-12 bg-cream">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+
+      <!-- Header -->
+      <div class="mb-10">
+        <h1 class="font-nepali text-3xl sm:text-4xl font-bold text-charcoal mb-2">सँगै काम गरौँ</h1>
+        <p class="text-muted">Work with me — for brands, companies, NGOs, and mission-driven organizations</p>
+      </div>
+
+      <!-- What we offer -->
+      <div class="grid sm:grid-cols-3 gap-5 mb-10">
+        <div class="bg-white rounded-xl p-5 border border-gold/10 hover:border-gold/40 transition-colors">
+          <div class="w-10 h-10 bg-crimson/10 rounded-lg flex items-center justify-center mb-3">
+            <span class="text-xl">📖</span>
+          </div>
+          <h3 class="font-nepali font-semibold text-charcoal mb-2">Sponsored Stories</h3>
+          <p class="text-sm text-charcoal/70 leading-relaxed">
+            तपाईंको काम, उत्पादन, वा परियोजनालाई हाम्रो editorial शैलीमा गहिरो कथामा बदल्छौं। पाठकलाई विज्ञापन होइन, मूल्य दिन्छौं।
+          </p>
+        </div>
+
+        <div class="bg-white rounded-xl p-5 border border-gold/10 hover:border-gold/40 transition-colors">
+          <div class="w-10 h-10 bg-navy/10 rounded-lg flex items-center justify-center mb-3">
+            <span class="text-xl">📊</span>
+          </div>
+          <h3 class="font-nepali font-semibold text-charcoal mb-2">Sector Reports</h3>
+          <p class="text-sm text-charcoal/70 leading-relaxed">
+            नेपालको कुनै क्षेत्रमा गहिरो research र narrative report। NGO, donor, वा government-friendly format।
+          </p>
+        </div>
+
+        <div class="bg-white rounded-xl p-5 border border-gold/10 hover:border-gold/40 transition-colors">
+          <div class="w-10 h-10 bg-gold/20 rounded-lg flex items-center justify-center mb-3">
+            <span class="text-xl">🧭</span>
+          </div>
+          <h3 class="font-nepali font-semibold text-charcoal mb-2">Narrative Consulting</h3>
+          <p class="text-sm text-charcoal/70 leading-relaxed">
+            तपाईंको brand वा organization को Nepal-focused story कसरी भन्ने? Strategy, messaging, र content direction।
+          </p>
+        </div>
+      </div>
+
+      <!-- Our promise -->
+      <div class="bg-navy text-white rounded-2xl p-6 sm:p-8 mb-10">
+        <h2 class="font-nepali text-xl font-bold mb-4">हाम्रो प्रतिबद्धता</h2>
+        <ul class="space-y-3 text-white/85 text-sm">
+          <li class="flex items-start gap-3">
+            <span class="text-gold mt-0.5">✓</span>
+            <span><strong class="text-white">Honest storytelling</strong> — sponsored content हो भने स्पष्ट रूपमा लेखिन्छ। Readers लाई कहिल्यै mislead गरिंदैन।</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-gold mt-0.5">✓</span>
+            <span><strong class="text-white">Editorial independence</strong> — story हाम्रो शैलीमा लेखिन्छ। तपाईंको product promotion होइन, genuine value हुन्छ।</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-gold mt-0.5">✓</span>
+            <span><strong class="text-white">Nepali-first audience</strong> — diaspora र domestic Nepali readers, mobile-first, high engagement।</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-gold mt-0.5">✓</span>
+            <span><strong class="text-white">Simple process</strong> — brief दिनुहोस्, हामी बाँकी गर्छौं।</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-gold/10">
+        <h2 class="font-nepali text-2xl font-bold text-charcoal mb-2">सम्पर्क गर्नुहोस्</h2>
+        <p class="text-muted text-sm mb-6">Get in touch — we'll respond within 48 hours.</p>
+
+        <form
+          name="work-with-me"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="space-y-4"
+        >
+          <input type="hidden" name="form-name" value="work-with-me" />
+          <p class="hidden">
+            <label>Don't fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-charcoal mb-1">नाम / Name *</label>
+              <input
+                name="name"
+                required
+                placeholder="तपाईंको नाम"
+                class="w-full rounded-lg border border-gold/20 bg-cream px-4 py-3 text-sm focus:outline-none focus:border-navy transition-colors"
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-charcoal mb-1">भूमिका / Role *</label>
+              <input
+                name="role"
+                required
+                placeholder="e.g. Marketing Manager, Founder"
+                class="w-full rounded-lg border border-gold/20 bg-cream px-4 py-3 text-sm focus:outline-none focus:border-navy transition-colors"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-charcoal mb-1">संस्था / Organisation</label>
+            <input
+              name="organisation"
+              placeholder="Company / NGO / Agency name"
+              class="w-full rounded-lg border border-gold/20 bg-cream px-4 py-3 text-sm focus:outline-none focus:border-navy transition-colors"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-charcoal mb-1">इमेल / Email *</label>
+            <input
+              name="email"
+              type="email"
+              required
+              placeholder="your@email.com"
+              class="w-full rounded-lg border border-gold/20 bg-cream px-4 py-3 text-sm focus:outline-none focus:border-navy transition-colors"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-charcoal mb-1">तपाईंलाई के चाहिएको छ? *</label>
+            <select
+              name="interest"
+              required
+              class="w-full rounded-lg border border-gold/20 bg-cream px-4 py-3 text-sm focus:outline-none focus:border-navy transition-colors mb-3"
+            >
+              <option value="">-- छान्नुहोस् / Select --</option>
+              <option value="sponsored-story">Sponsored Story / Case Study</option>
+              <option value="sector-report">Sector Report / Research</option>
+              <option value="narrative-consulting">Narrative Consulting</option>
+              <option value="other">अन्य / Other</option>
+            </select>
+            <textarea
+              name="message"
+              rows="5"
+              placeholder="थप विवरण / Additional details — project background, goals, timeline, budget range..."
+              class="w-full rounded-lg border border-gold/20 bg-cream px-4 py-3 text-sm focus:outline-none focus:border-navy transition-colors resize-none"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-crimson hover:bg-crimson/90 text-white px-8 py-3 rounded-lg font-nepali font-semibold transition-all hover:shadow-lg"
+          >
+            पठाउनुहोस्
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+</Layout>

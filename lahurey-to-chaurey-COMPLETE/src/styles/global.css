@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :lang(ne), .font-nepali {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+  }
+
+  body {
+    @apply bg-cream text-charcoal;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Hide scrollbar for category strip */
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+@layer components {
+  /* Nepali prose overrides for story content */
+  .prose h2::before {
+    content: "— ";
+    color: #DC143C;
+  }
+
+  .prose blockquote p {
+    @apply font-nepali text-lg leading-relaxed;
+  }
+
+  /* Category pill active state */
+  .category-pill-active {
+    @apply bg-navy text-white border-navy;
+  }
+}

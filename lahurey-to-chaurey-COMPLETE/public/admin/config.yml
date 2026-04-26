@@ -1,0 +1,236 @@
+# ============================================================
+# Decap CMS Configuration — लाहुरेदेखि चौरेसम्म
+# ============================================================
+# IMPORTANT: Replace the following before going live:
+#   - YOUR_GITHUB_USERNAME  →  your actual GitHub username
+#   - your-site.netlify.app →  your actual Netlify subdomain
+# ============================================================
+
+backend:
+  name: github
+  repo: YOUR_GITHUB_USERNAME/lahurey-to-chaurey
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+# Where uploaded images are stored in the repo
+media_folder: "public/images/uploads"
+# Where those images are referenced in content
+public_folder: "/images/uploads"
+
+site_url: "https://your-site.netlify.app"
+display_url: "https://your-site.netlify.app"
+
+# Show a live preview of content as you type
+show_preview_links: true
+
+# ============================================================
+# COLLECTIONS
+# ============================================================
+
+collections:
+
+  # ----------------------------------------------------------
+  # 1. STORIES — Deep case studies + magazine stories
+  # ----------------------------------------------------------
+  - name: "stories"
+    label: "📖 कथाहरू (Stories)"
+    label_singular: "Story"
+    folder: "src/content/stories"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    format: "frontmatter"
+    extension: "md"
+    preview_path: "stories/{{slug}}"
+    summary: "{{title}} — {{category}} ({{date}})"
+    sortable_fields: ["date", "title", "category"]
+
+    fields:
+
+      # ── Core metadata ──────────────────────────────────────
+      - label: "शीर्षक (Nepali Title)"
+        name: "title"
+        widget: "string"
+        hint: "मुख्य शीर्षक नेपालीमा लेख्नुहोस्"
+
+      - label: "Title in English (optional)"
+        name: "titleEn"
+        widget: "string"
+        required: false
+        hint: "Short English subtitle — for SEO and diaspora readers"
+
+      - label: "विषय / Category"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "🌾 कृषि र खाद्य (Agriculture & food)", value: "कृषि र खाद्य" }
+          - { label: "✈️ रेमिट्यान्स र लाहुरे (Remittance & migration)", value: "रेमिट्यान्स र लाहुरे" }
+          - { label: "💡 स्टार्टअप र नवप्रवर्तन (Startups & innovation)", value: "स्टार्टअप र नवप्रवर्तन" }
+          - { label: "🏔️ पर्यटन र संस्कृति (Tourism & culture)", value: "पर्यटन र संस्कृति" }
+          - { label: "🌱 वातावरण र ऊर्जा (Environment & energy)", value: "वातावरण र ऊर्जा" }
+          - { label: "🏗️ पूर्वाधार र विकास (Infrastructure)", value: "पूर्वाधार र विकास" }
+          - { label: "🤝 मानिस र समाज (People & society)", value: "मानिस र समाज" }
+          - { label: "💻 प्रविधि र डिजिटल (Tech & digital)", value: "प्रविधि र डिजिटल" }
+          - { label: "🎓 शिक्षा र युवा (Education & youth)", value: "शिक्षा र युवा" }
+
+      - label: "प्रकार / Type"
+        name: "type"
+        widget: "select"
+        options:
+          - { label: "📊 केस स्टडी (Deep case study)", value: "केस स्टडी" }
+          - { label: "📰 कथा (Magazine-style story)", value: "कथा" }
+
+      - label: "भाषा / Language"
+        name: "language"
+        widget: "select"
+        options:
+          - { label: "नेपाली", value: "नेपाली" }
+          - { label: "English", value: "English" }
+          - { label: "दुबै (Both)", value: "दुबै" }
+
+      - label: "प्रकाशन मिति / Publish Date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        hint: "When this story should appear as published"
+
+      - label: "पढाइ समय / Read Time"
+        name: "readTime"
+        widget: "string"
+        hint: 'e.g. "८ मिनेट" or "8 min"'
+        default: "५ मिनेट"
+
+      - label: "हिरो तस्बिर / Hero Image"
+        name: "heroImage"
+        widget: "image"
+        required: false
+        hint: "Main story image. Recommended: 1200×630px (16:9 ratio)"
+        media_library:
+          config:
+            max_file_size: 2000000
+
+      - label: "सम्पादकको छनोट / Editor's Choice"
+        name: "editorChoice"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "Mark this story as Editor's Choice — shown with a star badge"
+
+      # ── Summary Box ────────────────────────────────────────
+      - label: "सारांश: के भयो? (What happened?)"
+        name: "summaryWhat"
+        widget: "text"
+        required: false
+        hint: "1–2 sentences. Shown in the summary box at the top of the story."
+
+      - label: "सारांश: किन महत्त्वपूर्ण? (Why does it matter?)"
+        name: "summaryWhy"
+        widget: "text"
+        required: false
+        hint: "1–2 sentences about significance."
+
+      - label: "सारांश: के सिकाइ होला? (Key lesson)"
+        name: "summaryLesson"
+        widget: "text"
+        required: false
+        hint: "1–2 sentences — the main takeaway."
+
+      # ── Body ───────────────────────────────────────────────
+      - label: "मुख्य सामग्री / Body"
+        name: "body"
+        widget: "markdown"
+        hint: |
+          Suggested structure for case studies:
+          ## पृष्ठभूमि
+          ## मोड / Turning Point
+          ## नम्बर र तथ्यांक
+          ## सिकाइ
+          ## तपाईँको लागि के?
+
+  # ----------------------------------------------------------
+  # 2. PULSE — Short posts, commentary, trends
+  # ----------------------------------------------------------
+  - name: "pulse"
+    label: "⚡ नेपाल नाडी (Pulse Posts)"
+    label_singular: "Pulse Post"
+    folder: "src/content/pulse"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    format: "frontmatter"
+    extension: "md"
+    preview_path: "pulse/{{slug}}"
+    summary: "{{title}} ({{date}})"
+    sortable_fields: ["date", "title"]
+
+    fields:
+
+      - label: "शीर्षक / Title"
+        name: "title"
+        widget: "string"
+
+      - label: "विषय / Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "कृषि र खाद्य"
+          - "रेमिट्यान्स र लाहुरे"
+          - "स्टार्टअप र नवप्रवर्तन"
+          - "पर्यटन र संस्कृति"
+          - "वातावरण र ऊर्जा"
+          - "पूर्वाधार र विकास"
+          - "मानिस र समाज"
+          - "प्रविधि र डिजिटल"
+          - "शिक्षा र युवा"
+
+      - label: "प्रकाशन मिति / Date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        time_format: false
+
+      - label: "छोटो सारांश / Summary"
+        name: "summary"
+        widget: "text"
+        hint: "1–3 sentences. Shown on the Pulse listing page."
+
+      - label: "मुख्य सामग्री / Body"
+        name: "body"
+        widget: "markdown"
+        hint: "150–600 words. Short, punchy, opinionated."
+
+  # ----------------------------------------------------------
+  # 3. SITE SETTINGS — Featured story + WhatsApp link
+  # ----------------------------------------------------------
+  - name: "settings"
+    label: "⚙️ साइट सेटिङ (Site Settings)"
+    files:
+
+      - label: "Homepage Settings"
+        name: "homepage"
+        file: "src/content/settings/homepage.json"
+        fields:
+
+          - label: "Featured Story Slug"
+            name: "featuredStory"
+            widget: "string"
+            hint: 'The slug of the story to feature on the homepage. e.g. "solar-village-case-study"'
+
+          - label: "WhatsApp Channel Link"
+            name: "whatsappLink"
+            widget: "string"
+            hint: "Your full WhatsApp channel URL"
+            default: "https://whatsapp.com/channel/your-channel"
+
+          - label: "Hero Tagline (Nepali)"
+            name: "heroTaglineNP"
+            widget: "string"
+            default: "नेपाल सानो होला, तर सम्भावना असीमित छ।"
+
+          - label: "Hero Tagline (English)"
+            name: "heroTaglineEN"
+            widget: "string"
+            default: "Nepal may be small, but the potential is unimaginable."
