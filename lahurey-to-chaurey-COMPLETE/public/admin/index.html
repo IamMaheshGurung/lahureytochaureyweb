@@ -3,20 +3,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Content Manager — लाहुरेदेखि चौरेसम्म</title>
-    <script>
-      // Redirect identity tokens to admin
-      if (window.location.hash && window.location.hash.includes('invite_token')) {
-        const token = window.location.hash;
-        window.location.href = '/admin/' + token;
-      }
-      if (window.location.hash && window.location.hash.includes('recovery_token')) {
-        const token = window.location.hash;
-        window.location.href = '/admin/' + token;
-      }
-    </script>
+    <title>Content Manager</title>
   </head>
   <body>
-    <script src="https://unpkg.com/decap-cms-app@3.1.2/dist/decap-cms.js"></script>
+    <script src="https://unpkg.com/decap-cms-app@3.1.2/dist/decap-cms.js" 
+            integrity="" 
+            crossorigin="anonymous">
+    </script>
+    <script>
+      window.addEventListener('load', function() {
+        if (typeof DecapCms === 'undefined') {
+          document.body.innerHTML = '<p style="font-family:sans-serif;padding:2rem">CMS failed to load. Check your internet connection and try again.</p>';
+        }
+      });
+    </script>
   </body>
 </html>
