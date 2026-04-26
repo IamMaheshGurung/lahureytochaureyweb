@@ -10,6 +10,23 @@
   to = "/admin/index.html"
   status = 200
 
+  [[redirects]]
+  from = "/#recovery_token=*"
+  to = "/admin/#recovery_token=:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/#invite_token=*"
+  to = "/admin/#invite_token=:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200
+
 [[headers]]
   for = "/*"
   [headers.values]
